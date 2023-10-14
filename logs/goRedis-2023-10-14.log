@@ -1,0 +1,14 @@
+[INFO][server.go:33] 2023/10/14 14:21:58 start listen
+[INFO][server.go:56] 2023/10/14 14:22:46 accepted link
+[INFO][echo.go:48] 2023/10/14 14:22:57 connect close
+[INFO][server.go:41] 2023/10/14 14:23:47 shutting down
+[INFO][echo.go:63] 2023/10/14 14:23:47 handler shutting down
+[INFO][server.go:33] 2023/10/14 15:58:05 start listen
+[INFO][server.go:56] 2023/10/14 15:58:44 accepted link
+[INFO][echo.go:48] 2023/10/14 15:58:46 connect close
+[INFO][server.go:56] 2023/10/14 15:59:09 accepted link
+[INFO][echo.go:48] 2023/10/14 15:59:18 connect close
+[INFO][server.go:56] 2023/10/14 15:59:38 accepted link
+[INFO][echo.go:48] 2023/10/14 16:00:51 connect close
+[INFO][server.go:41] 2023/10/14 16:02:20 shutting down
+[INFO][echo.go:63] 2023/10/14 16:02:20 handler shutting down
