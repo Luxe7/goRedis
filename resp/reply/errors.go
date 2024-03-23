@@ -18,6 +18,7 @@ type ArgNumErrReply struct {
 	Cmd string
 }
 
+// ToBytes this reply is dynamic, so not use constant
 func (r *ArgNumErrReply) ToBytes() []byte {
 	return []byte("-ERR wrong number of arguments for " + r.Cmd + " command\r\n ")
 }

@@ -29,10 +29,10 @@ func MakeOkReply() *OkReply {
 	return theOkReply
 }
 
-var nullBulkBytes = []byte("$-1\r\n")
-
 // NullBulkReply is empty string
 type NullBulkReply struct{}
+
+var nullBulkBytes = []byte("$-1\r\n")
 
 // ToBytes marshal redis.Reply
 func (r *NullBulkReply) ToBytes() []byte {
@@ -44,10 +44,10 @@ func MakeNullBulkReply() *NullBulkReply {
 	return &NullBulkReply{}
 }
 
-var emptyMultiBulkBytes = []byte("*0\r\n")
-
 // EmptyMultiBulkReply is an empty list
 type EmptyMultiBulkReply struct{}
+
+var emptyMultiBulkBytes = []byte("*0\r\n")
 
 // ToBytes marshal redis.Reply
 func (r *EmptyMultiBulkReply) ToBytes() []byte {
