@@ -1,0 +1,13 @@
+[INFO][server.go:33] 2024/03/25 14:56:33 start listen
+[INFO][server.go:56] 2024/03/25 14:56:47 accepted link
+[ERROR][handler.go:74] 2024/03/25 14:57:50 require multi bulk reply
+[INFO][server.go:33] 2024/03/25 14:59:24 start listen
+[INFO][server.go:56] 2024/03/25 14:59:29 accepted link
+[ERROR][handler.go:74] 2024/03/25 14:59:32 require multi bulk reply
+[INFO][server.go:41] 2024/03/25 15:00:20 shutting down
+[INFO][handler.go:89] 2024/03/25 15:00:20 Handler is shutting down
+[INFO][server.go:33] 2024/03/25 15:00:25 start listen
+[INFO][server.go:56] 2024/03/25 15:00:25 accepted link
+[ERROR][handler.go:74] 2024/03/25 15:00:43 require multi bulk reply
+[INFO][server.go:41] 2024/03/25 15:00:43 shutting down
+[INFO][handler.go:89] 2024/03/25 15:00:43 Handler is shutting down
