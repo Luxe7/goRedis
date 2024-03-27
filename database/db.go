@@ -1,6 +1,7 @@
 package database
 
 import (
+	"goRedis/Interface/database"
 	"goRedis/Interface/resp"
 	"goRedis/datastruct/dict"
 	"goRedis/resp/reply"
@@ -31,6 +32,46 @@ func (db *DB) Exec(connection resp.Connection, cmdline CmdLine) resp.Reply {
 	return fun(db, cmdline[1:])
 
 }
+
+// 我们约定
+// 对于不变长的命令，参数个数为正常记录
+// 对于变长的命令，参数个数记录为带负号的最小值
 func validateArity(arity int, cmdArgs [][]byte) bool {
-	return true
+	argNum := len(cmdArgs)
+	if arity >= 0 {
+		return arity == argNum
+	}
+	return argNum >= -arity
+}
+
+func (db *DB) GetEntity(key string) (*database.DataEntry, bool) {
+	raw, ok := db.data.Get(key)
+	if ok == false {
+		return nil, false
+	}
+	entry, _ := raw.(*database.DataEntry)
+	return entry, true
+}
+
+func (db *DB) PutEntity(key string, val database.DataEntry) int {
+	return db.data.Put(key, val)
+}
+func (db *DB) PutIfExists(key string, val database.DataEntry) int {
+	return db.data.PutIfExists(key, val)
+}
+
+func (db *DB) PutIfAbsent(key string, val database.DataEntry) int {
+	return db.data.PutIfAbsent(key, val)
+}
+func (db *DB) Remove(key string) int {
+	return db.data.Remove(key)
+}
+func (db *DB) Removes(keys ...string) (deleted int) {
+	for _, key := range keys {
+		deleted += db.data.Remove(key)
+	}
+	return
+}
+func (db *DB) Flush() {
+	db.data.Clear()
 }

@@ -100,7 +100,7 @@ func (dict *SyncDict) RandomDistinctKeys(limit int) []string {
 	return result
 }
 
-func (dict *SyncDict) clear() {
+func (dict *SyncDict) Clear() {
 	*dict = *NewSyncDict()
 	//不可以写成这样：dict = NewSyncDict()，对dict解引用得到的才是外部调用方法的实例，否则只是将值赋给了方法中的局部变量
 }

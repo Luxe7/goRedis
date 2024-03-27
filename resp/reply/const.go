@@ -10,6 +10,9 @@ var pongBytes = []byte("+PONG\r\n")
 func (r *PongReply) ToBytes() []byte {
 	return pongBytes
 }
+func MakePongReply() *PongReply {
+	return &PongReply{}
+}
 
 type OkReply struct {
 }
