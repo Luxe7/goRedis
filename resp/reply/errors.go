@@ -13,6 +13,9 @@ func (r *UnknownErrReply) ToBytes() []byte {
 func (r *UnknownErrReply) Error() string {
 	return "Err unknown"
 }
+func MakeUnknownErrReply() *UnknownErrReply {
+	return &UnknownErrReply{}
+}
 
 type ArgNumErrReply struct {
 	Cmd string
