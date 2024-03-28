@@ -2,6 +2,7 @@ package database
 
 import (
 	"goRedis/Interface/resp"
+	"goRedis/aof"
 	"goRedis/config"
 	"goRedis/lib/logger"
 	"goRedis/resp/reply"
@@ -10,7 +11,8 @@ import (
 )
 
 type Database struct {
-	dbSet []*DB
+	dbSet      []*DB
+	aofHandler *aof.AofHandler
 }
 
 func NewDatabase() *Database {
@@ -23,6 +25,13 @@ func NewDatabase() *Database {
 		tDb := NewDB()
 		tDb.index = i
 		database.dbSet[i] = tDb
+	}
+	if config.Properties.AppendOnly {
+		aofHandler, err := aof.NewAof(database)
+		if err != nil {
+			panic(err)
+		}
+		database.aofHandler = aofHandler
 	}
 	return database
 }
