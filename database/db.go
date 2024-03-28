@@ -44,23 +44,23 @@ func validateArity(arity int, cmdArgs [][]byte) bool {
 	return argNum >= -arity
 }
 
-func (db *DB) GetEntity(key string) (*database.DataEntry, bool) {
+func (db *DB) GetEntity(key string) (*database.DataEntity, bool) {
 	raw, ok := db.data.Get(key)
 	if ok == false {
 		return nil, false
 	}
-	entry, _ := raw.(*database.DataEntry)
+	entry, _ := raw.(*database.DataEntity)
 	return entry, true
 }
 
-func (db *DB) PutEntity(key string, val database.DataEntry) int {
+func (db *DB) PutEntity(key string, val *database.DataEntity) int {
 	return db.data.Put(key, val)
 }
-func (db *DB) PutIfExists(key string, val database.DataEntry) int {
+func (db *DB) PutIfExists(key string, val *database.DataEntity) int {
 	return db.data.PutIfExists(key, val)
 }
 
-func (db *DB) PutIfAbsent(key string, val database.DataEntry) int {
+func (db *DB) PutIfAbsent(key string, val *database.DataEntity) int {
 	return db.data.PutIfAbsent(key, val)
 }
 func (db *DB) Remove(key string) int {

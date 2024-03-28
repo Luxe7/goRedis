@@ -9,6 +9,6 @@ type Database interface {
 	Close()
 	AfterClientClose(c resp.Connection)
 }
-type DataEntry struct {
+type DataEntity struct {
 	Data interface{}
 }
